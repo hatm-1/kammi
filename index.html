@@ -1974,7 +1974,7 @@ function viewHome(){
    '<div class="row between"><h2>الأبواب</h2><span class="muted">الإتقان العام <span class="m">'+allM()+'%</span></span></div>';
   BABS.forEach((b,bi)=>{const m=babM(bi);
     h+='<details class="bab" data-b="'+bi+'"'+(store.open===bi?" open":"")+'><summary><span class="bab-num">'+(bi+1)+'</span><span class="grow stack" style="gap:6px"><span class="row between"><h2>'+b.t+'</h2><span class="muted m">'+m+'%</span></span><span class="muted pgt">كتاب التأسيس: '+PRG(PGB[bi])+'</span><span class="bar"><i style="width:'+m+'%"></i></span></span></summary><div class="lessons">';
-    b.L.forEach((l,li)=>{h+='<button class="lesson" data-b="'+bi+'" data-l="'+li+'"><span>'+l.t+' <span class="muted">('+l.r.length+' قاعدة ، ص '+PGL[bi+"-"+li][0]+')</span></span>'+pill(bi,li)+'</button>'});
+    b.L.forEach((l,li)=>{h+='<button class="lesson" data-b="'+bi+'" data-l="'+li+'"><span>'+l.t+' <span class="muted">('+(l.r.length>2&&l.r.length<11?l.r.length+' قواعد':l.r.length+' قاعدة')+' ، ص '+PGL[bi+"-"+li][0]+')</span></span>'+pill(bi,li)+'</button>'});
     h+='</div></details>'});
   app.innerHTML=h;
   $("#daily").onclick=()=>{const mk2=()=>smartSet(10);startQuiz(mk2(),"تدريب اليوم",null,()=>setTab("home"),mk2)};
