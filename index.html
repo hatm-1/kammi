@@ -2259,6 +2259,8 @@ function viewTimer(){
 }
 $("#set").innerHTML=ic("gear");
 setTab("home");
+/* العمل بدون إنترنت: يحفظ نسخة من التطبيق على الجهاز (يتطلب رابط https) */
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>
